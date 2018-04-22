@@ -1,5 +1,5 @@
-const path = require('path');
-const vueLoaderOptions = require('./vue-loader.config.js');
+const path = require('path')
+const vueLoaderOptions = require('./vue-loader.config.js')
 const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
@@ -12,6 +12,12 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.(vue|js|jsx)$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+        enforce: 'pre' // 预处理
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderOptions(isDev)
@@ -21,9 +27,9 @@ const config = {
         loader: 'babel-loader'
       },
       {
-      	test: /\.js$/,
-      	loader: 'babel-loader',
-      	exclude: /node_modules/
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.(gif|jpg|jpeg|png|svg)$/,
@@ -38,8 +44,7 @@ const config = {
         ]
       }
     ]
-  } 
+  }
 }
-
 
 module.exports = config

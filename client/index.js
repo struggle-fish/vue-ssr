@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './app.vue'
 
-import './assets/styles/global.scss';
+import './assets/styles/global.scss'
 
 const root = document.createElement('div')
 document.body.appendChild(root)
