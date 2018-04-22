@@ -7,6 +7,7 @@
 node_modules
 logs
 *.rar
+dist
 npm-debug.log
 npm-debug.log.*
 yarn.lock
