@@ -11,10 +11,10 @@ const devServer = {
   port: 9000,
   host: '0.0.0.0',
   overlay: {
-    errors: true,
+    errors: true
   },
   hot: true
-};
+}
 const defaultPlugin = [
   new webpack.DefinePlugin({
     'process.env': {
@@ -22,8 +22,8 @@ const defaultPlugin = [
     }
   }),
   new HTMLPlugin()
-];
-let config;
+]
+let config
 if (isDev) {
   config = merge(baseConfig, {
     devtool: '#cheap-module-eval-source-map',
@@ -38,7 +38,7 @@ if (isDev) {
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true,
+                sourceMap: true
               }
             },
             'stylus-loader'
@@ -52,7 +52,7 @@ if (isDev) {
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true,
+                sourceMap: true
               }
             },
             'sass-loader'
@@ -64,7 +64,7 @@ if (isDev) {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoEmitOnErrorsPlugin()
     ])
-  });
+  })
 } else {
   config = merge(baseConfig, {
     entry: {
@@ -85,7 +85,7 @@ if (isDev) {
               {
                 loader: 'postcss-loader',
                 options: {
-                  sourceMap: true,
+                  sourceMap: true
                 }
               },
               'stylus-loader'
@@ -101,7 +101,7 @@ if (isDev) {
               {
                 loader: 'postcss-loader',
                 options: {
-                  sourceMap: true,
+                  sourceMap: true
                 }
               },
               'sass-loader'
@@ -120,7 +120,7 @@ if (isDev) {
         name: 'runtime'
       })
     ])
-  });
+  })
 }
 
 module.exports = config
