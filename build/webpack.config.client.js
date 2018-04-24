@@ -13,6 +13,10 @@ const devServer = {
   overlay: {
     errors: true
   },
+  historyApiFallback: {
+    // 此处的路径地址 要跟 output 中的 publicPath路径保持一致
+    index: '/index.html'
+  },
   hot: true
 }
 const defaultPlugin = [
@@ -21,7 +25,9 @@ const defaultPlugin = [
       NODE_ENV: isDev ? '"development"' : '"production"'
     }
   }),
-  new HTMLPlugin()
+  new HTMLPlugin({
+    template: path.join(__dirname, '../client/template.html')
+  })
 ]
 let config
 if (isDev) {
